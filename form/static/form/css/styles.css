@@ -15,12 +15,12 @@ body {
 }
 /* End of Navbar */
 
-/* img */
+/* Image */
 img {
   width: 125px;
   height: 50px;
 }
-/* End of img */
+/* End of Image */
 
 /* Content */
 .content {
@@ -28,8 +28,9 @@ img {
   grid-template-columns: 3fr 1fr;
   gap: 30px;
 }
+/* End of Content */
 
-/* form */
+/* Form Container */
 .form {
   width: 100%;
   border-radius: 12px;
@@ -42,7 +43,9 @@ form {
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
+/* End of Form Container */
 
+/* Headings */
 h1 {
   text-align: center;
   padding: 2rem 1rem 1rem;
@@ -54,7 +57,9 @@ h2 {
   padding-bottom: 0.3rem;
   margin-bottom: 1.2rem;
 }
+/* End of Headings */
 
+/* Form Block */
 .form-block {
   margin-bottom: 2.5rem;
 }
@@ -70,7 +75,9 @@ h2 {
   border-radius: 10px;
   position: relative;
 }
+/* End of Form Block */
 
+/* Labels & Inputs */
 label {
   display: block;
   margin-top: 1rem;
@@ -96,7 +103,9 @@ textarea {
   resize: vertical;
   min-height: 80px;
 }
+/* End of Labels & Inputs */
 
+/* Buttons */
 .btn {
   display: inline-block;
   background-color: #007bff;
@@ -147,7 +156,9 @@ textarea {
 .submit-btn:hover {
   background-color: #218838;
 }
+/* End of Buttons */
 
+/* Utility */
 .d-none {
   display: none;
 }
@@ -155,7 +166,9 @@ textarea {
 input[type="checkbox"][name$="-DELETE"] {
   display: none;
 }
+/* End of Utility */
 
+/* Footer */
 .footer {
   background-color: #007bff;
   color: white;
@@ -163,7 +176,9 @@ input[type="checkbox"][name$="-DELETE"] {
   font-size: larger;
   margin: 20px auto;
 }
+/* End of Footer */
 
+/* Upload Form */
 .upload-form {
   background-color: rgb(101, 104, 122);
   border-radius: 12px;
@@ -194,7 +209,7 @@ input[type="checkbox"][name$="-DELETE"] {
   padding: 12px;
   font-size: 1rem;
   color: #fff;
-  background-color: #007bff; /* Bootstrap Primary Color */
+  background-color: #007bff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -204,7 +219,9 @@ input[type="checkbox"][name$="-DELETE"] {
 .upload-form button[type="submit"]:hover {
   background-color: #0056b3;
 }
+/* End of Upload Form */
 
+/* Style Choices */
 .style-choices {
   border-radius: 12px;
   background: rgb(209, 210, 218);
@@ -229,5 +246,64 @@ input[type="checkbox"][name$="-DELETE"] {
 
 .style-choices input[type="radio"] {
   margin-right: 8px;
-  accent-color: #007bff; /* warna tombol radio */
+  accent-color: #007bff;
 }
+/* End of Style Choices */
+
+/* Tablet */
+@media screen and (max-width: 750px) {
+  body {
+    background-color: #000000;
+  }
+  .upload-form {
+    order: 2px solid white;
+  }
+  .content {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .form {
+    border: 2px solid white;
+  }
+  .navbar {
+    margin-bottom: 40px;
+  }
+}
+
+#header,
+#skills,
+#certificates,
+#experience,
+#education {
+  scroll-margin-top: 250px;
+}
+/* End For Tablet */
+
+/* Mobile Phone */
+@media screen and (max-width: 575px) {
+  body {
+    background-color: #000000;
+  }
+  .upload-form {
+    display: none;
+  }
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    border: 2px solid white;
+  }
+  .navbar {
+    margin-bottom: 40px;
+  }
+}
+
+#header,
+#skills,
+#certificates,
+#experience,
+#education {
+  scroll-margin-top: 250px;
+}
+/* End For Mobile Phone */
