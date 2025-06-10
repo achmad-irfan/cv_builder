@@ -1,0 +1,19 @@
+from .base import *
+
+DEBUG= False
+
+ALLOWED_HOSTS = ['www.cvbuilder.achmad-irfan.my.id','cvbuilder.achmad-irfan.my.id']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
+
+STATIC_ROOT = "/home/wwwachm1/public_html/static"
+MEDIA_ROOT = '/home/wwwachm1/public_html/media'

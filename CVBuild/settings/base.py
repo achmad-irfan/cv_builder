@@ -25,7 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.2']
 
@@ -76,16 +75,7 @@ WSGI_APPLICATION = "CVBuild.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME_LOKAL'),
-        'USER': config('DB_USER_LOKAL'),
-        'PASSWORD': config('DB_PASSWORD_LOKAL'),
-        'HOST': config('DB_HOST_LOKAL'),
-        'PORT': config('DB_PORT_LOKAL'),
-    }
-}
+
 
 
 # Password validation
@@ -121,6 +111,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+MEDIA_URL = '/media/'
+MEDIA_DIRS = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
