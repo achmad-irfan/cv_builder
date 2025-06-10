@@ -83,14 +83,18 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  background-color: #555;
+  color: white;
+  padding: 2mm;
+  border-bottom-right-radius: 20mm;
 }
 
-.itemcv::after {
+/* .itemcv::after {
   content: "";
   flex-grow: 1;
   height: 2px;
   background-color: #444;
-}
+} */
 
 .edu-item {
   display: grid;

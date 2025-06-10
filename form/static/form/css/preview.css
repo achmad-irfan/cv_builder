@@ -29,3 +29,56 @@ body {
   padding: 20px;
   border-radius: 12px;
 }
+
+/* Mobile Phone */
+@media screen and (max-width: 750px) {
+  .cv-preview {
+    grid-template-columns: 4fr 1fr;
+  }
+
+  .cv-container {
+    width: 100%;
+  }
+
+  .cvpreviewssss {
+    width: 100%;
+    font-size: small;
+  }
+
+  .header h4 {
+    font-size: small;
+  }
+
+  .label_css {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Phone */
+@media screen and (max-width: 576px) {
+  .cv-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .cvpreviewssss h3::after {
+    content: "(only available in desktop size)";
+    display: block;
+    font-size: small;
+  }
+
+  .cvpreviewssss {
+    width: 100%;
+  }
+
+  .cv-container {
+    width: 100%;
+    font-size: smaller;
+    display: none;
+  }
+
+  .label_css {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
