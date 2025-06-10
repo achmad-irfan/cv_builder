@@ -1,0 +1,86 @@
+<div class="cv-container">
+  <!-- Header -->
+  <header class="header">
+    <!-- <img src="{{ CV.photo_profile}}" alt="photo-profile" /> -->
+    <h1 class="name">{{ CV.name | upper }}</h1>
+    <h2 class="roles">{{ CV.roles | title}}</h2>
+    <h4 class="email">{{ CV.email }}</h4>
+    <h4 class="telp">{{ CV.telp }}</h4>
+    <h4 class="location">{{ CV.location | title }}</h4>
+    <h4 class="web">{{ CV.web }}</h4>
+  </header>
+
+  <!-- Summary -->
+  <section class="summary section-box">
+    <h3 class="itemcv">Summary</h3>
+    <p>{{ CV.summary }}</p>
+  </section>
+
+  <!-- Education -->
+  <section class="education section-box">
+    <h3 class="itemcv">Education</h3>
+    {% for edu in CV.education.all %}
+    <div class="edu-item">
+      <div class="edu-left">
+        <h5 class="fw-bold">{{ edu.school_name }}</h5>
+        <p>{{ edu.get_degree_display }} - {{ edu.major }}</p>
+      </div>
+      <div class="edu-right">
+        <p>{{ edu.location }}</p>
+        <p>{{ edu.start_year }} - {{ edu.end_year }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <!-- Experience -->
+  <section class="experience section-box">
+    <h3 class="itemcv">Experience</h3>
+    {% for exp in CV.experience.all %}
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-info">
+          <p style="font-weight: bold">{{ exp.experience_name }}</p>
+          <p>{{ exp.position }}</p>
+        </div>
+        <div class="exp-meta">
+          <p>{{ exp.location }}</p>
+          <p>{{ exp.start_year }} - {{ exp.end_year }}</p>
+        </div>
+      </div>
+      {% if exp.jobdesc %}
+      <h5>Jobdesc:</h5>
+      <ul class="jobdesc">
+        {% for line in exp.jobdesc.splitlines %} {% if line.strip %}
+        <li>{{ line }}</li>
+        {% endif %} {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% empty %}
+    <p>No experience data.</p>
+    {% endfor %}
+  </section>
+
+  <!-- Skills -->
+  <section class="skills section-box">
+    <h3 class="itemcv">Skills</h3>
+    <ul class="skill-list">
+      {% for s in CV.skill.all %}
+      <li>{{ s.skill_name }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <!-- Certificate -->
+  <section class="certificates section-box">
+    <h3 class="itemcv">Certificates</h3>
+    {% for cert in CV.certificate.all %}
+    <div class="cert-item">
+      <p>{{ cert.certificate_name }} - {{ cert.company }} ({{ cert.year }})</p>
+    </div>
+    {% empty %}
+    <p>No certificate data.</p>
+    {% endfor %}
+  </section>
+</div>

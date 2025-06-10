@@ -1,0 +1,31 @@
+{% extends 'index.html' %} {% load static %}
+
+<!-- blok css -->
+{% block css_app %}
+<link id="dynamic-style" rel="stylesheet" href="{% static 'form/css/cv_style1.css' %}" />
+<link rel="stylesheet" href="{% static 'form/css/preview.css' %}" />
+{% endblock %}
+<!-- End blok css -->
+
+<!-- block content -->
+{% block content %}
+<div class="cv-preview">
+  <div class="cvpreviewssss">
+    <h3>Preview</h3>
+    {% include "form/cv_partial.html" %}
+  </div>
+  <div class="style-choices">
+    <h3>Choose Style:</h3>
+    <label><input type="radio" name="cv_style" value="cv_style1" /> CV ATR 1</label><br />
+    <label><input type="radio" name="cv_style" value="cv_style2" /> CV ATR 2</label><br />
+    <label><input type="radio" name="cv_style" value="cv_style3" /> CV ATR 3</label><br />
+    <label><input type="radio" name="cv_style" value="cv_style4" /> CV ATR 4</label><br />
+    <a id="download-link" href="{% url 'app_form:export_pdf' CV.id %}?style=cv_style1">
+      <button type="button" id="download-btn" class="btn btn-secondary" data-cvid="{{ CV.id }}">Download CV PDF</button>
+    </a>
+    <a href="{% url 'app_form:savejson' CV.slug %}" class="btn btn-primary"> Download as JSON </a>
+  </div>
+</div>
+<script src="{% static 'form/js/preview.js' %}"></script>
+{% endblock %}
+<!-- end block content -->

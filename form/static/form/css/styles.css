@@ -1,0 +1,233 @@
+/* Body */
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background-color: #021122;
+  margin: 0;
+  padding: 0;
+  padding-top: 90px;
+}
+/* End of Body */
+
+/* Navbar */
+.navbar {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+/* End of Navbar */
+
+/* img */
+img {
+  width: 125px;
+  height: 50px;
+}
+/* End of img */
+
+/* Content */
+.content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 30px;
+}
+
+/* form */
+.form {
+  width: 100%;
+  border-radius: 12px;
+}
+
+form {
+  max-width: 100%;
+  padding: 2rem;
+  background: rgb(113, 115, 131);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  color: #333;
+}
+
+h2 {
+  color: #444;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-block {
+  margin-bottom: 2.5rem;
+}
+
+.form-block .edu-form,
+.form-block .skill-form,
+.form-block .experience-form,
+.form-block .certificate-form {
+  background: #f9f9f9;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.4rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #b02a37;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  background-color: #28a745;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+.d-none {
+  display: none;
+}
+
+input[type="checkbox"][name$="-DELETE"] {
+  display: none;
+}
+
+.footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  font-size: larger;
+  margin: 20px auto;
+}
+
+.upload-form {
+  background-color: rgb(101, 104, 122);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.upload-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.upload-form input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.upload-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff; /* Bootstrap Primary Color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.style-choices {
+  border-radius: 12px;
+  background: rgb(209, 210, 218);
+  padding: 20px;
+}
+
+.style-choices h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.style-choices label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  cursor: pointer;
+  color: #444;
+  font-size: 15px;
+}
+
+.style-choices input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #007bff; /* warna tombol radio */
+}

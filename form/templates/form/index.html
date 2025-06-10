@@ -1,0 +1,138 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+<div class="content">
+  <div class="form">
+    <form method="post">
+      {% csrf_token %}
+      <!-- === CV FORM === -->
+      <div class="form-block">
+        <h2 class="fw-bold">Personal Information</h2>
+        {{ cv_form.as_p }}
+      </div>
+
+      <!-- === EDUCATION FORMSET === -->
+      <div class="form-block section-offset" id="education">
+        <h2>Education</h2>
+        {{ education_formset.management_form }}
+        <div id="edu-form-list">
+          {% for form in education_formset %}
+          <div class="edu-form">
+            {{ form.as_p }} {{ form.DELETE }}
+            <button type="button" class="remove-edu-btn btn btn-danger">Delete</button>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="edu-form-template" class="d-none">
+          <div class="edu-form">
+            {{ education_formset.empty_form.as_p|safe }} {{ education_formset.empty_form.DELETE }}
+            <button type="button" class="remove-edu-btn btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-edu-btn">+ Add Education</button>
+      </div>
+
+      <!-- === SKILL FORMSET === -->
+      <div class="form-block section-offset" id="skill">
+        <h2>Skills</h2>
+        {{ skill_formset.management_form }}
+        <div id="skill-form-list">
+          {% for form in skill_formset %}
+          <div class="skill-form">
+            {{ form.as_p }} {{ form.DELETE }}
+            <button type="button" class="remove-skill-btn btn btn-danger">Delete</button>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="skill-form-template" class="d-none">
+          <div class="skill-form">
+            {{ skill_formset.empty_form.as_p|safe }} {{ skill_formset.empty_form.DELETE }}
+            <button type="button" class="remove-skill-btn btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-skill-btn">+ Add Skill</button>
+      </div>
+
+      <!-- === EXPERIENCE FORMSET === -->
+      <div class="form-block section-offset" id="experience">
+        <h2>Experience</h2>
+        {{ experience_formset.management_form }}
+        <div id="experience-form-list">
+          {% for form in experience_formset %}
+          <div class="experience-form">
+            {{ form.as_p }} {{ form.DELETE }}
+            <button type="button" class="remove-experience-btn btn btn-danger">Delete</button>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="experience-form-template" class="d-none">
+          <div class="experience-form">
+            {{ experience_formset.empty_form.as_p|safe }} {{ experience_formset.empty_form.DELETE }}
+            <button type="button" class="remove-experience-btn btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-experience-btn">+ Add Experience</button>
+      </div>
+
+      <!-- === CERTIFICATE FORMSET === -->
+      <div class="form-block section-offset" id="certificate">
+        <h2>Certificate</h2>
+        {{ certificate_formset.management_form }}
+        <div id="certificate-form-list">
+          {% for form in certificate_formset %}
+          <div class="certificate-form">
+            {{ form.as_p }} {{ form.DELETE }}
+            <button type="button" class="remove-certificate-btn btn btn-danger">Delete</button>
+          </div>
+          {% endfor %}
+        </div>
+        <div id="certificate-form-template" class="d-none">
+          <div class="certificate-form">
+            {{ certificate_formset.empty_form.as_p|safe }} {{ certificate_formset.empty_form.DELETE }}
+            <button type="button" class="remove-certificate-btn btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-certificate-btn">+ Add Certificate</button>
+      </div>
+
+      <!-- === SUBMIT BUTTON === -->
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </form>
+    <!-- Error display untuk Education -->
+    {% if edu_formset.non_form_errors %}
+    <div class="alert alert-danger">{{ edu_formset.non_form_errors }}</div>
+    {% endif %} {% for form in edu_formset %} {% if form.errors %}
+    <div class="alert alert-danger">{{ form.errors }}</div>
+    {% endif %} {% endfor %}
+
+    <!-- Error display untuk Skill -->
+    {% if skill_formset.non_form_errors %}
+    <div class="alert alert-danger">{{ skill_formset.non_form_errors }}</div>
+    {% endif %} {% for form in skill_formset %} {% if form.errors %}
+    <div class="alert alert-danger">{{ form.errors }}</div>
+    {% endif %} {% endfor %}
+
+    <!-- Error display untuk Certificate -->
+    {% if certificate_formset.non_form_errors %}
+    <div class="alert alert-danger">{{ certificate_formset.non_form_errors }}</div>
+    {% endif %} {% for form in certificate_formset %} {% if form.errors %}
+    <div class="alert alert-danger">{{ form.errors }}</div>
+    {% endif %} {% endfor %}
+
+    <!-- Error display untuk Experience -->
+    {% if experience_formset.non_form_errors %}
+    <div class="alert alert-danger">{{ experience_formset.non_form_errors }}</div>
+    {% endif %} {% for form in experience_formset %} {% if form.errors %}
+    <div class="alert alert-danger">{{ form.errors }}</div>
+    {% endif %} {% endfor %}
+  </div>
+
+  <div class="upload-form">
+    <form method="post" enctype="multipart/form-data" action="{% url 'app_form:upload_json_form' %}">
+      {% csrf_token %}
+      <h3>Upload JSON CV</h3>
+      <input type="file" name="json_file" accept=".json" required />
+      <button type="submit">Import</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

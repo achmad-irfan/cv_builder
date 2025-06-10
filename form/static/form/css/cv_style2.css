@@ -1,0 +1,164 @@
+@page {
+  size: A4;
+  margin: 1cm;
+}
+
+* {
+  font-family: "Calibri", sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+  line-height: 1.25;
+}
+
+.cv-container {
+  background-color: white;
+  display: grid;
+  grid-template-areas:
+    "personal personal"
+    "summary summary"
+    "education experience"
+    "skills experience "
+    "certificates experience"
+    ". experience";
+  gap: 5mm;
+  grid-template-columns: 3fr 4fr;
+}
+
+.header {
+  grid-area: personal;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "name name name"
+    "roles roles roles"
+    "telp email location"
+    "web web web";
+}
+
+.header img {
+  display: none;
+}
+
+.section-box {
+  font-weight: bold;
+}
+.name {
+  grid-area: name;
+}
+
+.roles {
+  grid-area: roles;
+}
+
+.email {
+  grid-area: email;
+}
+
+.location {
+  grid-area: location;
+}
+
+.web {
+  grid-area: web;
+}
+
+.telp {
+  grid-area: telp;
+}
+
+.summary {
+  grid-area: summary;
+  text-align: justify;
+}
+
+.education {
+  grid-area: education;
+}
+
+.itemcv {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.itemcv::after {
+  content: "";
+  flex-grow: 1;
+  height: 2px;
+  background-color: #444;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 3mm;
+}
+
+.edu-right {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+
+.edu-detail {
+  text-align: right;
+}
+
+.edu-sub {
+  font-size: 0.9em;
+  color: #555;
+  margin-left: 10px;
+}
+
+.experience {
+  grid-area: experience;
+}
+
+.exp-item {
+  margin-bottom: 15px;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.exp-detail {
+  text-align: right;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.jobdesc {
+  margin: 5px 0 0 20px;
+  text-align: justify;
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-list li {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.certificates {
+  grid-area: certificates;
+}

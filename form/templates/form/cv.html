@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link id="dynamic-style" rel="stylesheet" href="{% static 'form/css/cv_style1.css' %}" />
+    <title>CV</title>
+  </head>
+  <body>
+    {% include "form/cv_partial.html" %}
+  </body>
+</html>
