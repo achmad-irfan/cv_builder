@@ -20,5 +20,5 @@ A Django-based web application to build professional CVs. Users can input their 
 - HTML + CSS (with CSS Grid for layouting)
 - WeasyPrint (for PDF rendering)
 - Bootstrap (for basic styling, optional)
-- SQLite (default) or MySQL support
+- MySQL support
 
