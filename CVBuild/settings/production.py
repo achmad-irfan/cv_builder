@@ -15,5 +15,5 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = "/home/wwwachm1/public_html/CVBUILDING/static"
-MEDIA_ROOT = '/home/wwwachm1/public_html//CVBUILDING/media'
+STATIC_ROOT = "/home/wwwachm1/CVBUILDING/staticfiles"
+MEDIA_ROOT = '/home/wwwachm1/CVBUILDING/mediafiles'
