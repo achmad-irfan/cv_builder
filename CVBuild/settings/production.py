@@ -15,8 +15,8 @@ DATABASES = {
     }
 }
 
-STATIC_ROOT = "/home/wwwachm1/public_html/cvbuilding_static"
-MEDIA_ROOT = '/home/wwwachm1/public_html/cvbuilding_media'
+STATIC_ROOT = "/home/wwwachm1/CVBUILDER/staticfiles"
+MEDIA_ROOT = '/home/wwwachm1/CVBUILDER/mediafiles'
 
 LOGGING = {
     'version': 1,
