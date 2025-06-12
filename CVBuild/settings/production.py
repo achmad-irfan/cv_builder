@@ -17,3 +17,22 @@ DATABASES = {
 
 STATIC_ROOT = "/home/wwwachm1/public_html/cvbuilding_static"
 MEDIA_ROOT = '/home/wwwachm1/public_html/cvbuilding_media'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
