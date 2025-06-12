@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG= False
 
-ALLOWED_HOSTS = ['www.cvbuilding.achmad-irfan.my.id','cvbuilding.achmad-irfan.my.id']
+ALLOWED_HOSTS = ['www.cvbuilder.achmad-irfan.my.id','cvbuilder.achmad-irfan.my.id']
 
 DATABASES = {
     'default': {
