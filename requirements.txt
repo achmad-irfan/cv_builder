@@ -1,5 +1,5 @@
 Django>=4.2
-WeasyPrint>=60.1
+WeasyPrint>=52.5
 django-widget-tweaks>=1.4.12
 python-decouple>=3.8
 mysqlclient>=2.2.7
