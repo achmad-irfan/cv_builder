@@ -3,11 +3,13 @@
   <header class="header">
     <!-- <img src="{{ CV.photo_profile}}" alt="photo-profile" /> -->
     <h1 class="name">{{ CV.name | upper }}</h1>
-    <h2 class="roles">{{ CV.roles | title}}</h2>
-    <h4 class="email">{{ CV.email }}</h4>
-    <h4 class="telp">{{ CV.telp }}</h4>
-    <h4 class="location">{{ CV.location | title }}</h4>
-    <h4 class="web">{{ CV.web }}</h4>
+    <h3 class="roles">{{ CV.roles | title}}</h3>
+    <div class="header-left">
+      <h5 class="telp">{{ CV.telp }}</h5>
+      <h5 class="email">{{ CV.email }}</h4>
+      <h5 class="location">{{ CV.location | title }}</h5>
+    </div>
+    <h5 class="web">{{ CV.web }}</h5>
   </header>
 
   <!-- Summary -->
@@ -22,7 +24,7 @@
     {% for edu in CV.education.all %}
     <div class="edu-item">
       <div class="edu-left">
-        <h5 class="fw-bold">{{ edu.school_name }}</h5>
+        <h5>{{ edu.school_name }}</h5>
         <p>{{ edu.get_degree_display }} - {{ edu.major }}</p>
       </div>
       <div class="edu-right">
@@ -40,7 +42,7 @@
     <div class="exp-item">
       <div class="exp-header">
         <div class="exp-info">
-          <p style="font-weight: bold">{{ exp.experience_name }}</p>
+          <p class="fw-bold">{{ exp.experience_name }}</p>
           <p>{{ exp.position }}</p>
         </div>
         <div class="exp-meta">

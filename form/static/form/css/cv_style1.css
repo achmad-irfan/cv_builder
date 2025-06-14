@@ -29,8 +29,7 @@
   src: url("../font/carlito/Carlito-BoldItalic.ttf") format(truetype);
   font-weight: bold;
   font-style: italic;
-} 
-
+}
 
 * {
   font-family: "Carlito", sans-serif;
@@ -41,68 +40,44 @@
   line-height: 1.25;
 }
 
-.cv-container {
-  background-color: white;
-  display: grid;
-  grid-template-areas:
-    "personal"
-    "summary"
-    "education"
-    "experience"
-    "skills"
-    "certificates";
-  gap: 2mm;
-}
-
-.header {
-  grid-area: personal;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "name name name"
-    "roles roles roles"
-    "telp email location"
-    "web web web";
-}
-.header img {
-  display: none;
+p {
+  font-size: smaller;
 }
 
 .section-box {
-  font-weight: bold;
-}
-.name {
-  grid-area: name;
+  margin-top: 2mm;
 }
 
-.roles {
-  grid-area: roles;
+.cv-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-.email {
-  grid-area: email;
+.header {
+  text-align: center;
+}
+h1,
+h2 {
+  line-height: 1.2;
 }
 
+.header-left {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.email,
+.telp,
 .location {
-  grid-area: location;
-}
-
-.web {
-  grid-area: web;
-}
-
-.telp {
-  grid-area: telp;
+  flex-grow: 1;
 }
 
 .summary {
-  grid-area: summary;
   text-align: justify;
-}
-
-.education {
-  grid-area: education;
 }
 
 .itemcv {
@@ -111,7 +86,6 @@
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .itemcv::after {
@@ -122,11 +96,14 @@
 }
 
 .edu-item {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 3mm;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 
+.edu-left h5 {
+  font-weight: bold;
+}
 .edu-right {
   display: flex;
   flex-direction: column;
@@ -143,12 +120,8 @@
   margin-left: 10px;
 }
 
-.experience {
-  grid-area: experience;
-}
-
 .exp-item {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .exp-header {
@@ -163,13 +136,13 @@
   color: #555;
 }
 
+.exp-info p:nth-child(1) {
+  background-color: rgb(197, 205, 213);
+}
+
 .jobdesc {
   margin: 5px 0 0 20px;
   text-align: justify;
-}
-
-.skills {
-  grid-area: skills;
 }
 
 .skill-list {
@@ -177,15 +150,11 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
 .skill-list li {
-  background-color: #f0f0f0;
+  background-color: #ded4d4;
   padding: 5px 10px;
   border-radius: 5px;
-}
-
-.certificates {
-  grid-area: certificates;
+  margin-right: 5px;
 }

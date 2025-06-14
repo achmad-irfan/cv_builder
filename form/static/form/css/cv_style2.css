@@ -3,79 +3,119 @@
   margin: 1cm;
 }
 
+/* Font Face (di luar @media print untuk kompatibilitas) */
+@font-face {
+  font-family: "Carlito";
+  src: url("../font/carlito/Carlito-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Carlito";
+  src: url("../font/carlito/Carlito-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Carlito";
+  src: url("../font/carlito/Carlito-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Carlito";
+  src: url("../font/carlito/Carlito-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Global Styles (berlaku umum) */
 * {
-  font-family: "Calibri", sans-serif;
+  font-family: "Carlito", sans-serif;
   color: #000;
   margin: 0;
   padding: 0;
   font-weight: lighter;
   line-height: 1.25;
+  box-sizing: border-box;
 }
 
-.cv-container {
-  background-color: white;
-  display: grid;
-  grid-template-areas:
-    "personal personal"
-    "summary summary"
-    "education experience"
-    "skills experience "
-    "certificates experience"
-    ". experience";
-  gap: 5mm;
-  grid-template-columns: 3fr 4fr;
-}
-
-.header {
-  grid-area: personal;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "name name name"
-    "roles roles roles"
-    "telp email location"
-    "web web web";
-}
-
-.header img {
-  display: none;
+p {
+  font-size: smaller;
 }
 
 .section-box {
-  font-weight: bold;
-}
-.name {
-  grid-area: name;
+  margin-top: 2mm;
 }
 
-.roles {
-  grid-area: roles;
+.cv-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
 }
 
-.email {
-  grid-area: email;
+/* Flex dua kolom */
+.outer {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
 }
 
+.col1 {
+  flex: 35%;
+  width: 35%; /* Tambahkan fallback untuk PDF */
+}
+
+.col2 {
+  flex: 65%;
+  width: 65%; /* Tambahkan fallback */
+  margin-left: 7mm;
+}
+
+.row-style2 {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  width: 100%;
+  background-color: rgb(46, 44, 44);
+  color: white;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+.header-left {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background-color: rgb(46, 44, 44);
+  color: white;
+}
+
+.email,
+.telp,
 .location {
-  grid-area: location;
+  flex-grow: 1;
 }
 
-.web {
-  grid-area: web;
+.name {
+  color: white;
 }
 
-.telp {
-  grid-area: telp;
-}
-
+/* Konten */
 .summary {
-  grid-area: summary;
   text-align: justify;
-}
-
-.education {
-  grid-area: education;
 }
 
 .itemcv {
@@ -84,7 +124,9 @@
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  background-color: #d1d2dc;
+  border-bottom-right-radius: 4mm;
+  padding: 1mm;
 }
 
 .itemcv::after {
@@ -94,10 +136,15 @@
   background-color: #444;
 }
 
+/* Education */
 .edu-item {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 3mm;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.edu-left h5 {
+  font-weight: bold;
 }
 
 .edu-right {
@@ -116,12 +163,9 @@
   margin-left: 10px;
 }
 
-.experience {
-  grid-area: experience;
-}
-
+/* Experience */
 .exp-item {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .exp-header {
@@ -136,29 +180,31 @@
   color: #555;
 }
 
-.jobdesc {
-  margin: 5px 0 0 20px;
-  text-align: justify;
+.jobdesc li {
+  font-size: smaller;
 }
 
-.skills {
-  grid-area: skills;
-}
+/* Tambahan styling hanya untuk cetak */
+@media print {
+  .download-btn,
+  .style-selector {
+    display: none !important;
+  }
 
-.skill-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+  .outer {
+    display: flex;
+    flex-direction: row;
+  }
 
-.skill-list li {
-  background-color: #f0f0f0;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+  .col1 {
+    width: 35%;
+  }
 
-.certificates {
-  grid-area: certificates;
+  .col2 {
+    width: 65%;
+  }
+
+  .cv-container {
+    background-color: white !important;
+  }
 }
