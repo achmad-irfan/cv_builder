@@ -4,15 +4,14 @@ A Django-based web application to build professional CVs. Users can input their 
 
 ## ✨ Features
 
-- Input comprehensive CV data:
+  - Input comprehensive CV data:
   - Personal information
   - Summary
   - Education (multiple entries via formset)
   - Work experience with multiple job descriptions (nested formset)
   - Skills and certificates
-- 4 Styles CSS (ATR CV Version)
-- Export CV to PDF with selected style
-- Grid-based layout system for flexible design
+  - 2 Styles CSS (ATR CV Version) so far
+  - Export CV to PDF with selected style 
 
 ## 🛠 Tech Stack
 
@@ -21,4 +20,7 @@ A Django-based web application to build professional CVs. Users can input their 
 - WeasyPrint (for PDF rendering)
 - Bootstrap (for basic styling, optional)
 - MySQL support
+
+ ## Chalengge
+ - Can't use CSS grid and Flexbox because the share hosting only support library weasyprint that not support for Grid
 
