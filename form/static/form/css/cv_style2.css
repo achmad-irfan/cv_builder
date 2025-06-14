@@ -32,7 +32,7 @@
   font-style: italic;
 }
 
-/* Global Styles */
+/* Reset dan Umum */
 * {
   font-family: "Carlito", sans-serif;
   color: #000;
@@ -53,34 +53,40 @@ p {
 
 .cv-container {
   background-color: white;
-  overflow: hidden; /* mencegah float overflow */
 }
 
-/* Dua kolom tanpa Flex/Grid */
+/* Dua kolom tanpa flex */
 .outer {
-  overflow: hidden;
+  width: 100%;
+  font-size: 0; /* Menghilangkan spasi antar inline-block */
+  margin-top: 10px;
+}
+
+.col1,
+.col2 {
+  display: inline-block;
+  vertical-align: top;
+  font-size: initial;
+  box-sizing: border-box;
 }
 
 .col1 {
-  float: left;
   width: 35%;
-  margin-right: 10mm;
+  padding-right: 10px;
 }
 
 .col2 {
-  float: left;
-  width: 55%; /* 100% - 35% - 10mm */
+  width: 65%;
+  padding-left: 10px;
 }
 
-/* Clearfix untuk outer */
-.outer::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.row-style2 {
-  overflow: hidden;
+/* Cegah pemisahan halaman di tengah kolom */
+.col1,
+.col2,
+.col1 *:not(p),
+.col2 *:not(p) {
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 /* Header */
@@ -100,13 +106,15 @@ h2 {
   width: 100%;
   background-color: rgb(46, 44, 44);
   color: white;
+  padding: 5px;
 }
 
 .email,
 .telp,
 .location {
   display: inline-block;
-  width: 32%;
+  width: 30%;
+  font-size: 0.9em;
   text-align: center;
 }
 
@@ -119,11 +127,11 @@ h2 {
   text-align: justify;
 }
 
+/* Judul Seksi */
 .itemcv {
   font-size: 1.4rem;
   font-weight: bold;
   text-align: left;
-  display: block;
   background-color: #d1d2dc;
   border-bottom-right-radius: 4mm;
   padding: 1mm;
@@ -133,27 +141,28 @@ h2 {
 .itemcv::after {
   content: "";
   position: absolute;
-  bottom: 2px;
-  left: 100px;
-  right: 5px;
+  left: 100%;
+  top: 50%;
+  width: 1000px;
   height: 2px;
   background-color: #444;
 }
 
 /* Education */
 .edu-item {
-  overflow: hidden;
+  display: block;
   margin-bottom: 5px;
 }
 
-.edu-left {
-  float: left;
-  width: 60%;
+.edu-left h5 {
+  font-weight: bold;
 }
 
 .edu-right {
-  float: right;
-  width: 35%;
+  text-align: right;
+}
+
+.edu-detail {
   text-align: right;
 }
 
@@ -169,16 +178,11 @@ h2 {
 }
 
 .exp-header {
-  overflow: hidden;
+  display: block;
   margin-bottom: 3px;
 }
 
-.exp-header .left {
-  float: left;
-}
-
-.exp-header .right {
-  float: right;
+.exp-detail {
   text-align: right;
   font-size: 0.9em;
   color: #555;
@@ -188,11 +192,16 @@ h2 {
   font-size: smaller;
 }
 
-/* Print-only adjustment */
+/* Cetak */
 @media print {
   .download-btn,
   .style-selector {
     display: none !important;
+  }
+
+  .outer {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .cv-container {
