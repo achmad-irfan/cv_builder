@@ -3,36 +3,34 @@
   margin: 1cm;
 }
 
-/* Font Face */
 @font-face {
   font-family: "Carlito";
-  src: url("../font/carlito/Carlito-Regular.ttf") format("truetype");
+  src: url("../font/carlito/Carlito-Regular.ttf") format(truetype);
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Carlito";
-  src: url("../font/carlito/Carlito-Bold.ttf") format("truetype");
+  src: url("../font/carlito/Carlito-Bold.ttf") format(truetype);
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Carlito";
-  src: url("../font/carlito/Carlito-Italic.ttf") format("truetype");
+  src: url("../font/carlito/Carlito-Italic.ttf") format(truetype);
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Carlito";
-  src: url("../font/carlito/Carlito-BoldItalic.ttf") format("truetype");
+  src: url("../font/carlito/Carlito-BoldItalic.ttf") format(truetype);
   font-weight: bold;
   font-style: italic;
 }
 
-/* Reset dan Umum */
 * {
   font-family: "Carlito", sans-serif;
   color: #000;
@@ -40,11 +38,11 @@
   padding: 0;
   font-weight: lighter;
   line-height: 1.25;
-  box-sizing: border-box;
 }
 
-p {
-  font-size: smaller;
+.jobdesc li,
+.summary .itemcv p {
+  font-size: small;
 }
 
 .section-box {
@@ -53,50 +51,13 @@ p {
 
 .cv-container {
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Dua kolom tanpa flex */
-.outer {
-  width: 100%;
-  font-size: 0; /* Menghilangkan spasi antar inline-block */
-  margin-top: 10px;
-}
-
-.col1,
-.col2 {
-  display: inline-block;
-  vertical-align: top;
-  font-size: initial;
-  box-sizing: border-box;
-}
-
-.col1 {
-  width: 35%;
-  padding-right: 10px;
-}
-
-.col2 {
-  width: 65%;
-  padding-left: 10px;
-}
-
-/* Cegah pemisahan halaman di tengah kolom */
-.col1,
-.col2,
-.col1 *:not(p),
-.col2 *:not(p) {
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
-
-/* Header */
 .header {
   text-align: center;
-  width: 100%;
-  background-color: rgb(46, 44, 44);
-  color: white;
 }
-
 h1,
 h2 {
   line-height: 1.2;
@@ -104,62 +65,46 @@ h2 {
 
 .header-left {
   width: 100%;
-  background-color: rgb(46, 44, 44);
-  color: white;
-  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .email,
 .telp,
 .location {
-  display: inline-block;
-  width: 30%;
-  font-size: 0.9em;
-  text-align: center;
+  flex-grow: 1;
 }
 
-.name {
-  color: white;
-}
-
-/* Konten */
 .summary {
   text-align: justify;
 }
 
-/* Judul Seksi */
 .itemcv {
   font-size: 1.4rem;
   font-weight: bold;
   text-align: left;
-  background-color: #d1d2dc;
-  border-bottom-right-radius: 4mm;
-  padding: 1mm;
-  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: rgb(195, 175, 161);
+  padding: 2px;
+  border-bottom-right-radius: 10mm;
 }
 
-.itemcv::after {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: 50%;
-  width: 1000px;
-  height: 2px;
-  background-color: #444;
-}
-
-/* Education */
 .edu-item {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 5px;
 }
 
 .edu-left h5 {
   font-weight: bold;
 }
-
 .edu-right {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  text-align: end;
 }
 
 .edu-detail {
@@ -168,18 +113,18 @@ h2 {
 
 .edu-sub {
   font-size: 0.9em;
-  color: #555;
+  color: #bab3b3;
   margin-left: 10px;
 }
 
-/* Experience */
 .exp-item {
   margin-bottom: 5px;
 }
 
 .exp-header {
-  display: block;
-  margin-bottom: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .exp-detail {
@@ -188,23 +133,25 @@ h2 {
   color: #555;
 }
 
-.jobdesc li {
-  font-size: smaller;
+.exp-info p:nth-child(1) {
+  background-color: rgb(197, 205, 213);
 }
 
-/* Cetak */
-@media print {
-  .download-btn,
-  .style-selector {
-    display: none !important;
-  }
+.jobdesc {
+  margin: 5px 0 0 20px;
+  text-align: justify;
+}
 
-  .outer {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .cv-container {
-    background-color: white !important;
-  }
+.skill-list li {
+  background-color: #ded4d4;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
 }
