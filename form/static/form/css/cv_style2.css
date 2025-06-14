@@ -3,7 +3,7 @@
   margin: 1cm;
 }
 
-/* Font Face (di luar @media print untuk kompatibilitas) */
+/* Font Face */
 @font-face {
   font-family: "Carlito";
   src: url("../font/carlito/Carlito-Regular.ttf") format("truetype");
@@ -32,7 +32,7 @@
   font-style: italic;
 }
 
-/* Global Styles (berlaku umum) */
+/* Global Styles */
 * {
   font-family: "Carlito", sans-serif;
   color: #000;
@@ -52,32 +52,35 @@ p {
 }
 
 .cv-container {
-  display: flex;
-  flex-direction: column;
   background-color: white;
+  overflow: hidden; /* mencegah float overflow */
 }
 
-/* Flex dua kolom */
+/* Dua kolom tanpa Flex/Grid */
 .outer {
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
+  overflow: hidden;
 }
 
 .col1 {
-  flex: 35%;
-  width: 35%; /* Tambahkan fallback untuk PDF */
+  float: left;
+  width: 35%;
+  margin-right: 10mm;
 }
 
 .col2 {
-  flex: 65%;
-  width: 65%; /* Tambahkan fallback */
-  margin-left: 7mm;
+  float: left;
+  width: 55%; /* 100% - 35% - 10mm */
+}
+
+/* Clearfix untuk outer */
+.outer::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .row-style2 {
-  display: flex;
-  flex-direction: row;
+  overflow: hidden;
 }
 
 /* Header */
@@ -95,10 +98,6 @@ h2 {
 
 .header-left {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   background-color: rgb(46, 44, 44);
   color: white;
 }
@@ -106,7 +105,9 @@ h2 {
 .email,
 .telp,
 .location {
-  flex-grow: 1;
+  display: inline-block;
+  width: 32%;
+  text-align: center;
 }
 
 .name {
@@ -122,38 +123,37 @@ h2 {
   font-size: 1.4rem;
   font-weight: bold;
   text-align: left;
-  display: flex;
-  align-items: center;
+  display: block;
   background-color: #d1d2dc;
   border-bottom-right-radius: 4mm;
   padding: 1mm;
+  position: relative;
 }
 
 .itemcv::after {
   content: "";
-  flex-grow: 1;
+  position: absolute;
+  bottom: 2px;
+  left: 100px;
+  right: 5px;
   height: 2px;
   background-color: #444;
 }
 
 /* Education */
 .edu-item {
-  display: flex;
-  justify-content: space-between;
+  overflow: hidden;
   margin-bottom: 5px;
 }
 
-.edu-left h5 {
-  font-weight: bold;
+.edu-left {
+  float: left;
+  width: 60%;
 }
 
 .edu-right {
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-}
-
-.edu-detail {
+  float: right;
+  width: 35%;
   text-align: right;
 }
 
@@ -169,12 +169,16 @@ h2 {
 }
 
 .exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  overflow: hidden;
+  margin-bottom: 3px;
 }
 
-.exp-detail {
+.exp-header .left {
+  float: left;
+}
+
+.exp-header .right {
+  float: right;
   text-align: right;
   font-size: 0.9em;
   color: #555;
@@ -184,24 +188,11 @@ h2 {
   font-size: smaller;
 }
 
-/* Tambahan styling hanya untuk cetak */
+/* Print-only adjustment */
 @media print {
   .download-btn,
   .style-selector {
     display: none !important;
-  }
-
-  .outer {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .col1 {
-    width: 35%;
-  }
-
-  .col2 {
-    width: 65%;
   }
 
   .cv-container {
